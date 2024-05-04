@@ -1,6 +1,10 @@
+import { customApiError } from "../errors/customError.js"
+
 const errorHandlerMiddleware = (err,req,res,next)=>{
-    console.log(err)
-    return res.status(err.status).json({msg:err.message})
+    if(err instanceof customApiError ){
+        return res.status(err.statusCode).json({msg:err.message})
+    }
+    return res.status(500).json({msg:"Something went wrong,try again later"})
 
 }
 
