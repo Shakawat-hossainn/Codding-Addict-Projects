@@ -1,15 +1,19 @@
-require('dotenv').config();
-require('express-async-errors');
+import dotenv from 'dotenv'
+dotenv.config()
+import expressAsyncErrors from 'express-async-errors'
+import express from 'express'
+import homeRoute from "./routes/main.js"
 
-const express = require('express');
+
 const app = express();
 
-const notFoundMiddleware = require('./middleware/not-found');
-const errorHandlerMiddleware = require('./middleware/error-handler');
+import notFoundMiddleware from './middleware/not-found.js'
+import errorHandlerMiddleware from './middleware/error-handler.js'
 
 // middleware
 app.use(express.static('./public'));
 app.use(express.json());
+app.use('/api/v1',homeRoute)
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
