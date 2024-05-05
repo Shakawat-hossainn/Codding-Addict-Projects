@@ -1,4 +1,4 @@
-[
+export const ProductsTemplate = [
   {
     "name": "accent chair",
     "price": 25,
@@ -52,7 +52,6 @@
     "featured": true,
     "company": "ikea"
   },
-
   {
     "name": "leather sofa",
     "price": 99,
@@ -128,4 +127,4 @@
     "featured": true,
     "company": "caressa"
   }
-]
+];
